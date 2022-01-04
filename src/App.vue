@@ -1,32 +1,40 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app :style="{background: $vuetify.theme.themes.light.background}">
+    <Sidebar
+      :show="this.sidebarShow"
+    />
+    <Appbar
+      @updateDrawer="updateDrawer"
+    />
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Sidebar from '@/components/Navbars/Sidebar/Sidebar'
+import Appbar from '@/components/Navbars/AppBar'
 
-#nav {
-  padding: 30px;
+export default {
+  components: {
+    Sidebar,
+    Appbar
+  },
+  data () {
+    return {
+      sidebarShow: true
+    }
+  },
+  methods: {
+    updateDrawer () {
+      this.sidebarShow = !this.sidebarShow
+    }
+  },
+  computed: {
+    theme () {
+      return this.$vuetify.theme.dark ? 'dark' : 'light'
+    }
+  }
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
