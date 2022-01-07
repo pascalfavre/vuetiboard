@@ -3,9 +3,6 @@
     <Sidebar
       :show="this.sidebarShow"
     />
-    <Appbar
-      @updateDrawer="updateDrawer"
-    />
     <v-main>
       <router-view />
     </v-main>
@@ -14,12 +11,10 @@
 
 <script>
 import Sidebar from '@/components/Navbars/Sidebar/Sidebar'
-import Appbar from '@/components/Navbars/AppBar'
 
 export default {
   components: {
-    Sidebar,
-    Appbar
+    Sidebar
   },
   data () {
     return {
