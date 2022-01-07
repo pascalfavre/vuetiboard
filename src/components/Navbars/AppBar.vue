@@ -1,8 +1,6 @@
 <template>
-  <v-app-bar app>
-    <v-app-bar-nav-icon @click="updateDrawer"></v-app-bar-nav-icon>
-    Title
-  </v-app-bar>
+  
+    
 </template>
 
 <script>
